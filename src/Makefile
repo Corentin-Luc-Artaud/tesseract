@@ -7,7 +7,6 @@ endif
 ifeq ($(PLATFORM_ARCH),)
 	PLATFORM_ARCH= $(shell uname -m)
 endif
-ifeq
 PLATFORM_PREFIX= native
 
 INCLUDES= -Ishared -Iengine -Igame -Ienet/include
