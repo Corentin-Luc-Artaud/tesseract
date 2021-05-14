@@ -89,7 +89,7 @@ steps:
     - apt-get update
     - apt-get install -y g++ make libgl-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libpng-dev libjpeg-dev zlib1g-dev mingw-w64
     - mkdir -p src/standalone/shared src/standalone/game src/standalone/engine
-    - PLATFORM=MINGW
+    - export PLATFORM=MINGW
     - make -C src install
     - zip -r tesseract_win64.zip tesseract_unix bin_unix config media
 
