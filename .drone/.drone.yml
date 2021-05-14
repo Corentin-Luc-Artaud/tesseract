@@ -71,3 +71,40 @@ steps:
 trigger:
   event:
   - tag
+  
+---
+kind: pipeline
+type: docker
+name: Cross Build linux amd64
+
+platform:
+  arch: amd64
+  os: linux
+
+steps:
+  - name: Compile
+    image: debian:latest
+    commands:
+    - whoami
+    - apt-get update
+    - apt-get install -y mingw-w32
+    - mkdir -p src/standalone/shared src/standalone/game src/standalone/engine
+    - mingw-make -C src install
+    - tar -czf tesseract_unix_x64.tar.gz tesseract_unix bin_unix config media
+
+  - name: publish
+    image: plugins/github-release
+    settings:
+      api_key: 
+        from_secret: token
+      files:
+        - tesseract_unix_x64.tar.gz
+    checksum:
+        - md5
+        - sha1
+        - sha256
+        - sha512
+
+trigger:
+  event:
+  - tag
