@@ -87,7 +87,7 @@ steps:
     commands:
     - whoami
     - apt-get update
-    - apt-get install -y mingw-w64
+    - apt-get install -y g++ mingw-w64
     - mkdir -p src/standalone/shared src/standalone/game src/standalone/engine
     - PLATFORM=MINGW
     - make -C src install
