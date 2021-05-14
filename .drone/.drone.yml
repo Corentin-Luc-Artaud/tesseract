@@ -87,9 +87,9 @@ steps:
     commands:
     - whoami
     - apt-get update
-    - apt-get install -y mingw-w32
+    - apt-get install -y mingw-w64
     - mkdir -p src/standalone/shared src/standalone/game src/standalone/engine
-    - mingw-make -C src install
+    - mingw32-make -C src install
     - zip -r tesseract_win64.zip tesseract_unix bin_unix config media
 
   - name: publish
