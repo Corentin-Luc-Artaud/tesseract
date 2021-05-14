@@ -13,7 +13,7 @@ steps:
     commands:
     - whoami
     - apt-get update
-    - apt-get install g++ make libgl-dev libsdl2-dev libsdl2_image-dev libsdl2_mixer-dev libpng-dev libjpeg-dev zlib1g-dev
+    - apt-get install g++ make libgl-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libpng-dev libjpeg-dev zlib1g-dev
     - mkdir -p src/standalone/shared src/standalone/game src/standalone/engine
     - make -C src install
     - tar -cf tesseract_unix_x64 tesseract_unix bin_unix config media
