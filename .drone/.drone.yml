@@ -87,7 +87,7 @@ steps:
     commands:
     - whoami
     - apt-get update
-    - apt-get install -y g++ g++-multilib make libgl-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libpng-dev libjpeg-dev zlib1g-dev mingw-w64 zip
+    - apt-get install -y g++ g++-multilib make libgl-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libpng-dev libjpeg-dev zlib1g-dev mingw-w64 binutils-mingw-w64-x86-64 zip
     - mkdir -p src/standalone/shared src/standalone/game src/standalone/engine
     - export PLATFORM=MINGW
     - make -C src install
