@@ -15,8 +15,8 @@ steps:
     - apt-get update
     - apt-get install -y g++ make libgl-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libpng-dev libjpeg-dev zlib1g-dev 
     - mkdir -p src/standalone/shared src/standalone/game src/standalone/engine
-    - make -C src install
-    - tar -czf tesseract_unix_x64.tar.gz tesseract.bat server.bat bin64 config media
+    - make -C src install 
+    - tar -czf tesseract_unix_x64.tar.gz tesseract_unix bin_unix config media 
 
   - name: publish
     image: plugins/github-release
@@ -91,7 +91,7 @@ steps:
     - mkdir -p src/standalone/shared src/standalone/game src/standalone/engine
     - export PLATFORM=MINGW_CROSS_64
     - make -C src install
-    - zip -r tesseract_win64.zip tesseract_unix bin_unix config media
+    - zip -r tesseract_win64.zip tesseract.bat server.bat bin64 config media
 
   - name: publish
     image: plugins/github-release
