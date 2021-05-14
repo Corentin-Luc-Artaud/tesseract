@@ -16,7 +16,7 @@ steps:
     - apt-get install -y g++ make libgl-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libpng-dev libjpeg-dev zlib1g-dev 
     - mkdir -p src/standalone/shared src/standalone/game src/standalone/engine
     - make -C src install
-    - tar -cf tesseract_unix_x64 tesseract_unix bin_unix config media
+    - tar -czf tesseract_unix_x64.tar.gz tesseract_unix bin_unix config media
 
   - name: publish
     image: plugins/github-release
@@ -24,7 +24,7 @@ steps:
       api_key: 
         from_secret: token
       files:
-        - tesseract_unix_x64
+        - tesseract_unix_x64.tar.gz
     checksum:
         - md5
         - sha1
