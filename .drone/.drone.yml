@@ -8,7 +8,7 @@ platform:
   os: linux
 
 steps:
-  - name: test
+  - name: Compile
     image: debian:latest
     commands:
     - sudo apt-get install g++ make libgl-dev libsdl2-dev libsdl2_image-dev libsdl2_mixer-dev libpng-dev libjpeg-dev zlib1g-dev
