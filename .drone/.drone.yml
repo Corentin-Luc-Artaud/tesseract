@@ -16,7 +16,7 @@ steps:
     - apt-get install -y g++ make libgl-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libpng-dev libjpeg-dev zlib1g-dev 
     - mkdir -p src/standalone/shared src/standalone/game src/standalone/engine
     - make -C src install
-    - tar -czf tesseract_unix_x64.tar.gz tesseract_unix bin_unix config media
+    - tar -czf tesseract_unix_x64.tar.gz tesseract.bat server.bat bin64 config media
 
   - name: publish
     image: plugins/github-release
@@ -90,7 +90,7 @@ steps:
     - apt-get install -y mingw-w32
     - mkdir -p src/standalone/shared src/standalone/game src/standalone/engine
     - mingw-make -C src install
-    - tar -czf tesseract_unix_x64.tar.gz tesseract_unix bin_unix config media
+    - zip -r tesseract_win64.zip tesseract_unix bin_unix config media
 
   - name: publish
     image: plugins/github-release
@@ -98,7 +98,7 @@ steps:
       api_key: 
         from_secret: token
       files:
-        - tesseract_unix_x64.tar.gz
+        - tesseract_win64.zip
     checksum:
         - md5
         - sha1
