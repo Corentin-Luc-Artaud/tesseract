@@ -34,7 +34,7 @@ jobs:
         run: | 
           git --version
           git svn init svn://svn.tuxfamily.org/svnroot/tesseract/main
-          git svn fetch
+          git svn fetch -r HEAD
           git svn rebase
 
       - name: force push
