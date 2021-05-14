@@ -33,11 +33,12 @@ jobs:
       - name: svn update
         run: | 
           git --version
-          git svn init svn://svn.tuxfamily.org/svnroot/tesseract/main
-          git svn fetch -r HEAD
-          ls
-          # git update-ref refs/remotes/git-svn refs/remotes/origin/master
-          git svn rebase
+          git svn clone -rHEAD svn://svn.tuxfamily.org/svnroot/tesseract/main tmp
+          ls tmp
+          mv tmp/* .
+          rm -rf tmp
+          git add *
+          git commit -m "update on $(date -u -R)"
 
       - name: force push
         uses: dfm/force-push-branch-action@v1
