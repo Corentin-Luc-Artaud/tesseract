@@ -44,8 +44,5 @@ jobs:
           git config --local user.email "corentin.luc.artaud@gmail.com"
           git add *
           git commit -m "automated update on $(date -u -R)"
-
-      - name: force push
-        uses: dfm/force-push-branch-action@v1
-        with: 
-          target-branch: master
+          git branch 
+          git push
