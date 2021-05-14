@@ -34,3 +34,40 @@ steps:
 trigger:
   event:
   - tag
+
+---
+kind: pipeline
+type: docker
+name: Build linux arm
+
+platform:
+  arch: arm
+  os: linux
+
+steps:
+  - name: Compile
+    image: debian:latest
+    commands:
+    - whoami
+    - apt-get update
+    - apt-get install -y g++ make libgl-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libpng-dev libjpeg-dev zlib1g-dev 
+    - mkdir -p src/standalone/shared src/standalone/game src/standalone/engine
+    - make -C src install
+    - tar -czf tesseract_arm.tar.gz tesseract_unix bin_unix config media
+
+  - name: publish
+    image: plugins/github-release
+    settings:
+      api_key: 
+        from_secret: token
+      files:
+        - tesseract_arm.tar.gz
+    checksum:
+        - md5
+        - sha1
+        - sha256
+        - sha512
+
+trigger:
+  event:
+  - tag
