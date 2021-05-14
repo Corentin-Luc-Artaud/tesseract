@@ -75,7 +75,7 @@ trigger:
 ---
 kind: pipeline
 type: docker
-name: Cross Build linux amd64
+name: Cross Build windows amd64
 
 platform:
   arch: amd64
@@ -89,7 +89,8 @@ steps:
     - apt-get update
     - apt-get install -y mingw-w64
     - mkdir -p src/standalone/shared src/standalone/game src/standalone/engine
-    - mingw32-make -C src install
+    - PLATFORM=MINGW
+    - make -C src install
     - zip -r tesseract_win64.zip tesseract_unix bin_unix config media
 
   - name: publish
