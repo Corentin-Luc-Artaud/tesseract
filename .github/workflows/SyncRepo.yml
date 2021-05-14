@@ -35,7 +35,8 @@ jobs:
           git --version
           git svn init svn://svn.tuxfamily.org/svnroot/tesseract/main
           git svn fetch -r HEAD
-          git update-ref refs/remotes/git-svn refs/remotes/origin/master
+          ls
+          # git update-ref refs/remotes/git-svn refs/remotes/origin/master
           git svn rebase
 
       - name: force push
