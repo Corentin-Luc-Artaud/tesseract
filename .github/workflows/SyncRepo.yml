@@ -25,8 +25,8 @@ jobs:
       
       - name: install git-svn
         run: |
-          apt-get update
-          apt-get install git-svn
+          sudo apt-get update
+          sudo apt-get install git-svn
 
 
       - name: svn update
