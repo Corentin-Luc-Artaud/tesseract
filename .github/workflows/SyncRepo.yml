@@ -29,7 +29,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install git-svn
 
-
       - name: svn update
         run: | 
           git --version
@@ -37,8 +36,14 @@ jobs:
           ls tmp
           mv tmp/* .
           rm -rf tmp
+          ls
+          
+      - name: commit new changes
+        run: | 
+          git config --local user.name "Corentin-Luc-Artaud"
+          git config --local user.email "corentin.luc.artaud@gmail.com"
           git add *
-          git commit -m "update on $(date -u -R)"
+          git commit -m "automated update on $(date -u -R)"
 
       - name: force push
         uses: dfm/force-push-branch-action@v1
