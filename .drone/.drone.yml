@@ -33,4 +33,4 @@ steps:
 
 trigger:
   event:
-  - push
+  - tag
